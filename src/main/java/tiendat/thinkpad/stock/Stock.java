@@ -1,5 +1,7 @@
 package tiendat.thinkpad.stock;
 
+import java.text.DecimalFormat;
+
 public class Stock {
     //lưu mã cố phiếu
     String symbol;
@@ -19,7 +21,9 @@ public class Stock {
     }
 
     public double getChangePercent() {
-        return (this.currentPrice - this.previousClosingPrice) / this.previousClosingPrice * 100;
+        double percentChanged = (this.currentPrice - this.previousClosingPrice) / this.previousClosingPrice * 100;
+        DecimalFormat decimalFormat = new DecimalFormat(".##");
+        return Double.valueOf(decimalFormat.format(percentChanged));
     }
 
 }
